@@ -2,24 +2,34 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Sở thích của bạn</title>
+    <title>Form 1 và Form 2</title>
     <style>
         body {
             font-family: Arial;
-            background-color: crimson;
+            background-color: cornsilk;
         }
 
-        .container {
-            width: 400px;
-            margin: auto;
-            background: white;
+        .form-box {
+            width: 420px;
+            margin: 20px auto;
             padding: 20px;
             border-radius: 10px;
         }
 
+
+        .form1 {
+            background-color: aqua;
+            border: 2px solid lightskyblue;
+        }
+
+
+        .form2 {
+            background-color: brown;
+            border: 2px solid red;
+        }
+
         h2 {
             text-align: center;
-            color: black;
         }
 
         label {
@@ -33,7 +43,8 @@
 </head>
 <body>
 
-<div class="container">
+
+<div class="form-box form1">
     <h2>SỞ THÍCH CỦA BẠN</h2>
 
     <form>
@@ -54,6 +65,45 @@
 
         <div class="btn-group">
             <input type="submit" value="Gửi thông tin">
+            <input type="reset" value="Nhập lại">
+        </div>
+    </form>
+</div>
+
+
+<div class="form-box form2">
+    <h2>ĐĂNG KÝ HỌC VIÊN</h2>
+
+    <form>
+        <label>Họ và tên:</label><br>
+        <input type="text" name="fullname"><br><br>
+
+        <label>Ngày sinh:</label><br>
+        <input type="date" name="birthday"><br><br>
+
+        <label>Giới tính:</label><br>
+        <input type="radio" name="gender" value="Nam"> Nam
+        <input type="radio" name="gender" value="Nữ"> Nữ<br><br>
+
+        <label>Địa chỉ:</label><br>
+        <input type="text" name="address"><br><br>
+
+        <label>Lớp:</label><br>
+        <select name="class">
+            <option value="">Chọn lớp</option>
+            <option value="lop1">Lớp 1</option>
+            <option value="lop2">Lớp 2</option>
+            <option value="lop3">Lớp 3</option>
+        </select><br><br>
+
+        <label>Email:</label><br>
+        <input type="email" name="email"><br><br>
+
+        <label>Điện thoại:</label><br>
+        <input type="tel" name="phone"><br><br>
+
+        <div class="btn-group">
+            <input type="submit" value="Đăng ký">
             <input type="reset" value="Nhập lại">
         </div>
     </form>
