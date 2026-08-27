@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Sở thích của bạn</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: crimson;
+        }
+
+        .container {
+            width: 400px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            color: black;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .btn-group {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>SỞ THÍCH CỦA BẠN</h2>
+
+    <form>
+        <label>Họ và tên:</label><br>
+        <input type="text" name="yourName"><br><br>
+
+        <label>Email:</label><br>
+        <input type="email" name="email"><br><br>
+
+        <label>Sở thích:</label><br>
+        <input type="checkbox" name="hobby" value="thethao"> Thể thao<br>
+        <input type="checkbox" name="hobby" value="amnhac"> Âm nhạc<br>
+        <input type="checkbox" name="hobby" value="docsach"> Đọc sách<br>
+        <input type="checkbox" name="hobby" value="luotweb"> Lướt web<br>
+        <input type="checkbox" name="hobby" value="choigame"> Chơi game<br>
+        <input type="checkbox" name="hobby" value="dienanh"> Điện ảnh<br>
+        <input type="checkbox" name="hobby" value="dulich"> Du lịch<br><br>
+
+        <div class="btn-group">
+            <input type="submit" value="Gửi thông tin">
+            <input type="reset" value="Nhập lại">
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
