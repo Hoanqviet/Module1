@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính diện tích</title>
+</head>
+<body>
+
+<div id="ketQua"></div>
+
+<script>
+    let chieuDai = Number(prompt("Nhập chiều dài:"));
+    let chieuRong = Number(prompt("Nhập chiều rộng:"));
+    let dienTich = chieuDai * chieuRong;
+
+    let html = `
+        <h2>Kết quả tính diện tích hình chữ nhật</h2>
+        <p>Chiều dài: <b>${chieuDai}</b></p>
+        <p>Chiều rộng: <b>${chieuRong}</b></p>
+        <p>Diện tích:
+            <b style="color: blue; font-size: 26px;">
+                ${dienTich}
+            </b>
+        </p>
+    `;
+
+    document.getElementById("ketQua").innerHTML = html;
+</script>
+
+</body>
+</html>

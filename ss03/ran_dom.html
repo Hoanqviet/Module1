@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Birthday Bảo Trân</title>
+
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: linear-gradient(180deg, #ffe6f2, #fff7cc, #e6fffa);
+            font-family: "Comic Sans MS", "Arial", sans-serif;
+        }
+
+        /* Chữ Happy Birthday phong cách trẻ con */
+        .title {
+            position: absolute;
+            top: 40px;
+            width: 100%;
+            text-align: center;
+            font-size: 70px;
+            font-weight: bold;
+            color: #ff66ff;
+            text-shadow: 5px 5px 0px #ffffff;
+            font-family: "Comic Sans MS";
+        }
+
+        /* Tên người được chúc */
+        .name {
+            position: absolute;
+            top: 140px;
+            width: 100%;
+            text-align: center;
+            font-size: 45px;
+            color: #66ccff;
+            text-shadow: 3px 3px 0px #ffffff;
+            font-family: "Comic Sans MS";
+        }
+
+        /* Bánh kem vẽ kiểu trẻ con */
+        .cake {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 350px;
+            height: 350px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="title">🎉 Happy Birthday 🎉</div>
+<div class="name">Bảo Trân</div>
+
+<!-- Bánh kem nhiều tầng, vẽ ngoẹt ngoạc -->
+<svg class="cake" viewBox="0 0 300 300">
+
+    <!-- Tầng 1 (đế bánh) -->
+    <rect x="20" y="180" width="260" height="100" rx="25"
+          fill="#ff99cc" stroke="#ff66aa" stroke-width="6"
+          style="transform: skewX(-3deg);" />
+
+    <!-- Kem tầng 1 -->
+    <path d="M20 180 Q60 210 100 180 T180 180 T280 180"
+          fill="#ffe6f2" stroke="#ff66aa" stroke-width="5"
+          style="transform: skewX(-2deg);" />
+
+    <!-- Tầng 2 -->
+    <rect x="50" y="120" width="200" height="70" rx="20"
+          fill="#ffd480" stroke="#ffb84d" stroke-width="6"
+          style="transform: skewX(2deg);" />
+
+    <!-- Kem tầng 2 -->
+    <path d="M50 120 Q100 150 150 120 T250 120"
+          fill="#fff2cc" stroke="#ffb84d" stroke-width="5"
+          style="transform: skewX(1deg);" />
+
+    <!-- Tầng 3 -->
+    <rect x="90" y="70" width="120" height="50" rx="15"
+          fill="#b3e6ff" stroke="#66ccff" stroke-width="6"
+          style="transform: skewX(-1deg);" />
+
+    <!-- Kem tầng 3 -->
+    <path d="M90 70 Q130 95 170 70 T210 70"
+          fill="#e6f7ff" stroke="#66ccff" stroke-width="5" />
+
+    <!-- Nến -->
+    <rect x="145" y="20" width="10" height="50"
+          fill="#ffff66" stroke="#ffaa00" stroke-width="4"
+          style="transform: skewX(-2deg);" />
+
+    <!-- Ngọn lửa -->
+    <circle cx="150" cy="15" r="12"
+            fill="#ff6600" stroke="#ff3300" stroke-width="4">
+        <animate attributeName="r" values="12;15;12" dur="1s" repeatCount="indefinite" />
+    </circle>
+
+</svg>
+
+<script>
+    /* Hiệu ứng pháo hoa */
+    const canvas = document.createElement("canvas");
+    document.body.appendChild(canvas);
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    function randomColor() {
+        const colors = ["#ff4444", "#ff8844", "#44ff44", "#4444ff", "#ff44ff", "#44ffff", "#ffff44"];
+        return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    function Firework() {
+        this.x = Math.random() * canvas.width;
+        this.y = canvas.height;
+        this.targetY = Math.random() * canvas.height * 0.4;
+        this.color = randomColor();
+        this.size = 3;
+        this.speed = 6;
+        this.exploded = false;
+        this.particles = [];
+    }
+
+    Firework.prototype.update = function() {
+        if (!this.exploded) {
+            this.y -= this.speed;
+            if (this.y <= this.targetY) {
+                this.exploded = true;
+                for (let i = 0; i < 50; i++) {
+                    this.particles.push({
+                        x: this.x,
+                        y: this.y,
+                        dx: (Math.random() - 0.5) * 7,
+                        dy: (Math.random() - 0.5) * 7,
+                        life: 60,
+                        color: this.color
+                    });
+                }
+            }
+        } else {
+            this.particles.forEach(p => {
+                p.x += p.dx;
+                p.y += p.dy;
+                p.life--;
+            });
+        }
+    };
+
+    Firework.prototype.draw = function() {
+        if (!this.exploded) {
+            ctx.fillStyle = this.color;
+            ctx.fillRect(this.x, this.y, this.size, this.size);
+        } else {
+            this.particles.forEach(p => {
+                ctx.fillStyle = p.color;
+                ctx.fillRect(p.x, p.y, 4, 4);
+            });
+        }
+    };
+
+    let fireworks = [];
+
+    function loop() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        if (Math.random() < 0.06) {
+            fireworks.push(new Firework());
+        }
+
+        fireworks.forEach((fw, index) => {
+            fw.update();
+            fw.draw();
+            if (fw.exploded && fw.particles.every(p => p.life <= 0)) {
+                fireworks.splice(index, 1);
+            }
+        });
+
+        requestAnimationFrame(loop);
+    }
+
+    loop();
+</script>
+
+</body>
+</html>
