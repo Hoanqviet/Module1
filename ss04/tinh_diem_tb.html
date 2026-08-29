@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính điểm trung bình</title>
+</head>
+<body>
+
+<script>
+    let toan = Number(prompt("Nhập điểm Toán:"));
+    let ly   = Number(prompt("Nhập điểm Lý:"));
+    let hoa  = Number(prompt("Nhập điểm Hoá:"));
+
+    let diemTB = (toan + ly + hoa) / 3;
+
+    document.write(`
+        <h2>Kết quả tính điểm trung bình</h2>
+        <p>Điểm Toán: <b>${toan}</b></p>
+        <p>Điểm Lý: <b>${ly}</b></p>
+        <p>Điểm Hoá: <b>${hoa}</b></p>
+        <p>Điểm trung bình:
+            <b style="color: blue; font-size: 24px;">
+                ${diemTB.toFixed(2)}
+            </b>
+        </p>
+    `);
+</script>
+
+</body>
+</html>
