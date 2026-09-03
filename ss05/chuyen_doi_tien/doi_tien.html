@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5: Bộ chuyển đổi tiền tệ </title>
+</head>
+<body>
+
+<h2>Chuyển đổi tiền tệ theo bảng tỷ giá</h2>
+<p>Nhập số tiền và chọn loại tiền muốn đổi:</p>
+
+<label>Số tiền:
+    <input type="number" id="soTien" step="0.01" value="1">
+</label>
+<br><br>
+
+<label>Đổi từ:
+    <select id="tienGoc">
+        <option value="VND">VND - Việt Nam Đồng</option>
+        <option value="USD">USD - Đô la Mỹ</option>
+        <option value="EUR">EUR - Euro</option>
+        <option value="JPY">JPY - Yên Nhật</option>
+        <option value="GBP">GBP - Bảng Anh</option>
+    </select>
+</label>
+<br><br>
+
+<label>Sang:
+    <select id="tienDich">
+        <option value="USD">USD - Đô la Mỹ</option>
+        <option value="VND">VND - Việt Nam Đồng</option>
+        <option value="EUR">EUR - Euro</option>
+        <option value="JPY">JPY - Yên Nhật</option>
+        <option value="GBP">GBP - Bảng Anh</option>
+    </select>
+</label>
+<br><br>
+
+<button onclick="doiTien()">Thực hiện chuyển đổi</button>
+
+<hr>
+
+<div id="ketQua"></div>
+
+<script>
+    const tyGia = {
+        VND: { USD: 0.000039, EUR: 0.000036, JPY: 0.0060, GBP: 0.000031, VND: 1 },
+        USD: { VND: 25500, EUR: 0.92, JPY: 149.5, GBP: 0.79, USD: 1 },
+        EUR: { USD: 1.09, VND: 27700, JPY: 162.5, GBP: 0.86, EUR: 1 },
+        JPY: { USD: 0.0067, VND: 170, EUR: 0.0061, GBP: 0.0053, JPY: 1 },
+        GBP: { USD: 1.26, VND: 32000, EUR: 1.16, JPY: 188.5, GBP: 1 }
+    };
+
+    function doiTien() {
+        const soTien = Number(document.getElementById("soTien").value);
+        const goc = document.getElementById("tienGoc").value;
+        const dich = document.getElementById("tienDich").value;
+        const ketQua = document.getElementById("ketQua");
+
+        if (isNaN(soTien) || soTien <= 0) {
+            ketQua.textContent = "⚠️ Số tiền phải lớn hơn 0!";
+            return;
+        }
+
+        if (goc === dich) {
+            ketQua.textContent = "⚠️ Hãy chọn 2 loại tiền khác nhau!";
+            return;
+        }
+
+        const tyLe = tyGia[goc][dich];
+        const ketQuaChuyen = (soTien * tyLe).toFixed(2);
+
+        const tenGoc = document.getElementById("tienGoc").selectedOptions[0].text;
+        const tenDich = document.getElementById("tienDich").selectedOptions[0].text;
+
+        ketQua.innerHTML = `
+            <h3>Kết quả:</h3>
+            <p><b>${soTien} ${tenGoc}</b></p>
+            <p>= <b style="color:blue; font-size:20px;">${ketQuaChuyen} ${tenDich}</b></p>
+        `;
+    }
+</script>
+
+</body>
+</html>
