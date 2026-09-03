@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2: Đổi nhiệt độ</title>
+</head>
+<body>
+
+<h2>Chuyển đổi từ °C sang °F</h2>
+<p>Nhập giá trị độ C để thực hiện chuyển đổi:</p>
+
+<label>Độ C: <input type="number" id="giaTriC" step="0.1"></label>
+<br><br>
+
+<button onclick="doiNhiet()">Thực hiện</button>
+
+<hr>
+
+<div id="ketQua"></div>
+
+<script>
+    function doiNhiet() {
+        const celsius = Number(document.getElementById("giaTriC").value);
+        const output = document.getElementById("ketQua");
+
+
+        if (document.getElementById("giaTriC").value.trim() === "" || isNaN(celsius)) {
+            output.textContent = " Bạn chưa nhập số hợp lệ!";
+            return;
+        }
+
+
+        const fahrenheit = ((celsius * 9) / 5 + 32).toFixed(2);
+
+
+        output.innerHTML = `
+            <h3>Kết quả:</h3>
+            <p>${celsius}°C tương ứng với <b>${fahrenheit}°F</b></p>
+        `;
+    }
+</script>
+
+</body>
+</html>

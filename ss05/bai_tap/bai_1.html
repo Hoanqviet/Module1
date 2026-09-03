@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1: Tính điểm 3 môn</title>
+</head>
+<body>
+
+<h2>Bài 1: Nhập điểm và xem kết quả</h2>
+
+<p>Nhập điểm từng môn:</p>
+
+<label>Lý: <input type="number" id="lyInput"></label><br>
+<label>Hóa: <input type="number" id="hoaInput"></label><br>
+<label>Sinh: <input type="number" id="sinhInput"></label><br><br>
+
+<button onclick="xuLyDiem()">Tính toán</button>
+
+<hr>
+
+<div id="hienThiKetQua"></div>
+
+<script>
+    function xuLyDiem() {
+        const ly = Number(document.getElementById("lyInput").value);
+        const hoa = Number(document.getElementById("hoaInput").value);
+        const sinh = Number(document.getElementById("sinhInput").value);
+
+        const ketQua = document.getElementById("hienThiKetQua");
+
+
+        if (ly === "" || hoa === "" || sinh === "" || isNaN(ly) || isNaN(hoa) || isNaN(sinh)) {
+            ketQua.textContent = "Bạn phải nhập đủ cả 3 môn.";
+            return;
+        }
+
+
+        if ([ly, hoa, sinh].some(d => d < 0 || d > 10)) {
+            ketQua.textContent = "Điểm phải nằm trong khoảng 0 đến 10.";
+            return;
+        }
+
+        const tong = ly + hoa + sinh;
+        const tb = (tong / 3).toFixed(2);
+
+        ketQua.innerHTML = `
+            <h3>Kết quả</h3>
+            <p>Lý: <b>${ly}</b></p>
+            <p>Hóa: <b>${hoa}</b></p>
+            <p>Sinh: <b>${sinh}</b></p>
+            <hr>
+            <p>Tổng điểm: <b>${tong}</b></p>
+            <p>Điểm trung bình: <b>${tb}</b></p>
+        `;
+    }
+</script>
+
+</body>
+</html>

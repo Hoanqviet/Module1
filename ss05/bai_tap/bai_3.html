@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3: Diện tích hình tròn </title>
+</head>
+<body>
+
+<h2>TÍNH DIỆN TÍCH HÌNH TRÒN</h2>
+<p>Nhập giá trị bán kính để tính diện tích:</p>
+
+<label>Bán kính (r): <input type="number" id="giaTriR" step="0.01"></label>
+<br><br>
+
+<button onclick="tinhDT()">Tính ngay</button>
+
+<hr>
+
+<div id="hienThi"></div>
+
+<script>
+    function tinhDT() {
+        const r = Number(document.getElementById("giaTriR").value);
+        const ketQua = document.getElementById("hienThi");
+
+        if (document.getElementById("giaTriR").value.trim() === "" || isNaN(r)) {
+            ketQua.textContent = "⚠️ Bạn chưa nhập bán kính hợp lệ!";
+            return;
+        }
+
+
+        if (r <= 0) {
+            ketQua.textContent = "⚠️ Bán kính phải lớn hơn 0!";
+            return;
+        }
+
+        const dienTich = (Math.PI * r * r).toFixed(2);
+
+        ketQua.innerHTML = `
+            <h3>Kết quả tính toán:</h3>
+            <p>Bán kính: <b>${r}</b></p>
+            <p>Diện tích: <b>${dienTich}</b></p>
+        `;
+    }
+</script>
+
+</body>
+</html>
