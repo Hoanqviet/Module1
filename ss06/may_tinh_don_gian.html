@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Máy tính đơn giản</title>
+</head>
+<body>
+
+<h2>Máy tính đơn giản</h2>
+
+<input id="screen" type="text" readonly style="width: 200px; height: 30px; font-size: 20px;"><br><br>
+
+<button onclick="nhap('7')">7</button>
+<button onclick="nhap('8')">8</button>
+<button onclick="nhap('9')">9</button>
+<button onclick="nhap('/')">/</button><br>
+
+<button onclick="nhap('4')">4</button>
+<button onclick="nhap('5')">5</button>
+<button onclick="nhap('6')">6</button>
+<button onclick="nhap('*')">*</button><br>
+
+<button onclick="nhap('1')">1</button>
+<button onclick="nhap('2')">2</button>
+<button onclick="nhap('3')">3</button>
+<button onclick="nhap('-')">-</button><br>
+
+<button onclick="nhap('0')">0</button>
+<button onclick="xoa()">C</button>
+<button onclick="tinh()">=</button>
+<button onclick="nhap('+')">+</button>
+
+<script>
+    function nhap(value) {
+        document.getElementById("screen").value += value;
+    }
+
+    function xoa() {
+        document.getElementById("screen").value = "";
+    }
+
+    function tinh() {
+        let bieuThuc = document.getElementById("screen").value;
+
+        let ketQua = eval(bieuThuc);
+
+        document.getElementById("screen").value = ketQua;
+    }
+</script>
+
+</body>
+</html>
