@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+</head>
+<body>
+
+<h2>Bài 5: Xếp loại học lực</h2>
+
+<input id="kt" type="number" placeholder="Điểm kiểm tra">
+<input id="gk" type="number" placeholder="Điểm giữa kỳ">
+<input id="ck" type="number" placeholder="Điểm cuối kỳ">
+<button onclick="rank()">Xếp loại</button>
+
+<p id="result"></p>
+
+<script>
+    function rank() {
+        let kt = parseFloat(document.getElementById("kt").value);
+        let gk = parseFloat(document.getElementById("gk").value);
+        let ck = parseFloat(document.getElementById("ck").value);
+
+        let avg = (kt + gk + ck) / 3;
+        let rank = "";
+
+        if (avg >= 8) rank = "Giỏi";
+        else if (avg >= 6.5) rank = "Khá";
+        else if (avg >= 5) rank = "Trung bình";
+        else rank = "Yếu";
+
+        document.getElementById("result").innerText = "Học lực: " + rank;
+    }
+</script>
+
+</body>
+</html>

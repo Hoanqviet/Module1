@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<body>
+
+<h2>Bài 4: Tìm số lớn nhất trong 3 số</h2>
+
+<input id="n1" type="number" placeholder="Số 1">
+<input id="n2" type="number" placeholder="Số 2">
+<input id="n3" type="number" placeholder="Số 3">
+<button onclick="findMax()">Tìm số lớn nhất</button>
+
+<p id="result"></p>
+
+<script>
+    function findMax() {
+        let a = parseFloat(document.getElementById("n1").value);
+        let b = parseFloat(document.getElementById("n2").value);
+        let c = parseFloat(document.getElementById("n3").value);
+
+        let max = a;
+        if (b > max) max = b;
+        if (c > max) max = c;
+
+        document.getElementById("result").innerText = "Số lớn nhất là: " + max;
+    }
+</script>
+
+</body>
+</html>
