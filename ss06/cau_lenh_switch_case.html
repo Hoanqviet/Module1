@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính số ngày trong tháng</title>
+</head>
+<body>
+
+<h2>Tính số ngày trong tháng</h2>
+
+<label>Nhập tháng (1 - 12):</label>
+<input id="month" type="number" min="1" max="12">
+<button onclick="tinhNgay()">Tính số ngày</button>
+
+<p id="result"></p>
+
+<script>
+    function tinhNgay() {
+        var thang = parseInt(document.getElementById("month").value);
+        var ketQua = "";
+
+        if (isNaN(thang) || thang < 1 || thang > 12) {
+            document.getElementById("result").innerText = "Vui lòng nhập tháng từ 1 đến 12.";
+            return;
+        }
+
+        switch (thang) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                ketQua = "Tháng " + thang + " có 31 ngày.";
+                break;
+
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                ketQua = "Tháng " + thang + " có 30 ngày.";
+                break;
+
+            case 2:
+                ketQua = "Tháng 2 có 28 hoặc 29 ngày.";
+                break;
+
+            default:
+                ketQua = "Tháng không hợp lệ.";
+        }
+
+        document.getElementById("result").innerText = ketQua;
+    }
+</script>
+
+</body>
+</html>
