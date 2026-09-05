@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính BMI </title>
+</head>
+<body>
+<h1>Tính chỉ số BMI</h1>
+
+<label>Cân nặng (kg): </label>
+<input id="weight" type="number" step="0.1"><br><br>
+
+<label>Chiều cao (m): </label>
+<input id="height" type="number" step="0.01"><br><br>
+
+<button onclick="tinhBMI()">Tính BMI</button>
+
+<h3>Kết quả:</h3>
+<p id="bmi"></p>
+<p id="status"></p>
+
+<script>
+    function tinhBMI() {
+        var weight = parseFloat(document.getElementById("weight").value);
+        var height = parseFloat(document.getElementById("height").value);
+
+        if (isNaN(weight) || isNaN(height) || height <= 0) {
+            document.getElementById("bmi").innerText = "Vui lòng nhập đúng cân nặng và chiều cao.";
+            document.getElementById("status").innerText = "";
+            return;
+        }
+
+        var bmi = weight / (height * height);
+
+        document.getElementById("bmi").innerText = "BMI của bạn: " + bmi.toFixed(2);
+
+        var status = "";
+        if (bmi < 18.5) {
+            status = "Gầy (Underweight)";
+        } else if (bmi < 25.0) {
+            status = "Bình thường (Normal)";
+        } else if (bmi < 30.0) {
+            status = "Thừa cân (Overweight)";
+        } else {
+            status = "Béo phì (Obese)";
+        }
+
+        document.getElementById("status").innerText = "Phân loại: " + status;
+    }
+</script>
+</body>
+</html>
