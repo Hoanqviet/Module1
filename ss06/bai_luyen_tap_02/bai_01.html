@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
+</head>
+<body>
+<h3>Đổi độ C sang độ F</h3>
+
+<input id="c" type="number" placeholder="Nhập độ C">
+<button onclick="convert()">Đổi</button>
+
+<p id="result"></p>
+
+<script>
+    function convert() {
+        let c = document.getElementById("c").value;
+        let f = c * 9/5 + 32;
+        document.getElementById("result").innerText = "Độ F = " + f;
+    }
+</script>
+
+</body>
+</html>

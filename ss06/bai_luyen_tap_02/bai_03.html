@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+</head>
+<body>
+<h3>Diện tích hình vuông</h3>
+
+<input id="a" type="number" placeholder="Nhập cạnh a">
+<button onclick="calc()">Tính</button>
+
+<p id="result"></p>
+
+<script>
+    function calc() {
+        let a = document.getElementById("a").value;
+        let s = a * a;
+        document.getElementById("result").innerText = "Diện tích = " + s;
+    }
+</script>
+
+</body>
+</html>

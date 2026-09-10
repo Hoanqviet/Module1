@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<body>
+<h3>Diện tích hình chữ nhật</h3>
+
+<input id="a" type="number" placeholder="Nhập cạnh a">
+<input id="b" type="number" placeholder="Nhập cạnh b">
+<button onclick="calc()">Tính</button>
+
+<p id="result"></p>
+
+<script>
+    function calc() {
+        let a = document.getElementById("a").value;
+        let b = document.getElementById("b").value;
+        let s = a * b;
+        document.getElementById("result").innerText = "Diện tích = " + s;
+    }
+</script>
+
+</body>
+</html>

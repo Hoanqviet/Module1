@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 9</title>
+</head>
+<body>
+<h3>Kiểm tra tam giác</h3>
+
+<input id="a" type="number" placeholder="Nhập a">
+<input id="b" type="number" placeholder="Nhập b">
+<input id="c" type="number" placeholder="Nhập c">
+<button onclick="check()">Kiểm tra</button>
+
+<p id="result"></p>
+
+<script>
+    function check() {
+        let a = Number(document.getElementById("a").value);
+        let b = Number(document.getElementById("b").value);
+        let c = Number(document.getElementById("c").value);
+
+        let ok = a > 0 && b > 0 && c > 0 &&
+            a + b > c &&
+            b + c > a &&
+            a + c > b;
+
+        document.getElementById("result").innerText = ok ? "Là tam giác" : "Không phải tam giác";
+    }
+</script>
+
+</body>
+</html>

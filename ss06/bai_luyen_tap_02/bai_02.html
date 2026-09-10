@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+<h3>Đổi mét sang feet</h3>
+
+<input id="m" type="number" placeholder="Nhập mét">
+<button onclick="convert()">Đổi</button>
+
+<p id="result"></p>
+
+<script>
+    function convert() {
+        let m = document.getElementById("m").value;
+        let ft = m * 3.2808;
+        document.getElementById("result").innerText = "Feet = " + ft;
+    }
+</script>
+
+</body>
+</html>
