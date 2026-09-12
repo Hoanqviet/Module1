@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+</head>
+<body>
+<h3>20 số Fibonacci đầu tiên</h3>
+
+<button onclick="showFibo()">Hiển thị</button>
+<p id="result"></p>
+
+<script>
+    function showFibo() {
+        let a = 0, b = 1;
+        let list = "";
+
+        for (let i = 1; i <= 20; i++) {
+            list += a + " ";
+            let next = a + b;
+            a = b;
+            b = next;
+        }
+
+        document.getElementById("result").innerText = list;
+    }
+</script>
+
+</body>
+</html>
