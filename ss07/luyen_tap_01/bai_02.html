@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+<h3>Kiểm tra nhiệt độ</h3>
+
+<button onclick="checkTemp()">Nhập nhiệt độ</button>
+
+<script>
+    function checkTemp() {
+        let temp = Number(prompt("nhap nhiet do hien tai :"));
+
+        if (temp > 50) {
+            alert("nhiet do qua cao, hay giam nhiet do");
+        } else if (temp < 20) {
+            alert("nhiet do qua thap, hay tang nhiet do");
+        } else {
+            alert("nhiet do binh thuong");
+        }
+    }
+</script>
+
+</body>
+</html>
