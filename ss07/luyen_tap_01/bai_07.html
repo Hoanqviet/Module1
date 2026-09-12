@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 7</title>
+</head>
+<body>
+<h3>Fizz – Buzz – FizzBuzz</h3>
+
+<button onclick="run()">In kết quả</button>
+<p id="result"></p>
+
+<script>
+    function run() {
+        let text = "";
+
+        for (let i = 1; i <= 100; i++) {
+
+            if (i % 3 === 0 && i % 5 === 0) {
+                text += "FizzBuzz; ";
+            } else if (i % 3 === 0) {
+                text += "Fizz; ";
+            } else if (i % 5 === 0) {
+                text += "Buzz; ";
+            } else {
+                text += i + "; ";
+            }
+        }
+
+        text += "."; // dấu chấm cuối cùng
+
+        document.getElementById("result").innerText = text;
+    }
+</script>
+
+</body>
+</html>

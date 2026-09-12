@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+</head>
+<body>
+<h3>Tổng 20 số đầu tiên của dãy Fibonacci</h3>
+
+<button onclick="calc()">Tính tổng</button>
+<p id="result"></p>
+
+<script>
+    function calc() {
+        let a = 0, b = 1;
+        let sum = a + b;
+
+        for (let i = 3; i <= 20; i++) {
+            let next = a + b;
+            sum += next;
+            a = b;
+            b = next;
+        }
+
+        document.getElementById("result").innerText = "Tổng = " + sum;
+    }
+</script>
+
+</body>
+</html>
