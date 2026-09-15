@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+<h3>Tính giai thừa của một số nguyên dương</h3>
+
+<input id="n" type="number" placeholder="Nhập số nguyên dương">
+<button onclick="calc()">Tính</button>
+
+<p id="result"></p>
+
+<script>
+    function calc() {
+        let n = Number(document.getElementById("n").value);
+
+        if (n < 0 || !Number.isInteger(n)) {
+            document.getElementById("result").innerText = "Vui lòng nhập số nguyên dương!";
+            return;
+        }
+
+        let factorial = 1;
+
+        for (let i = 1; i <= n; i++) {
+            factorial *= i;
+        }
+
+        document.getElementById("result").innerText = n + "! = " + factorial;
+    }
+</script>
+
+</body>
+</html>

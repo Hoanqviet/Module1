@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
+</head>
+<body>
+<h3>10 số đầu tiên trong dãy Fibonacci</h3>
+
+<button onclick="showFibo()">Hiển thị</button>
+<p id="result"></p>
+
+<script>
+    function showFibo() {
+        let a = 0, b = 1;
+        let text = a + "; " + b + "; ";
+
+        for (let i = 3; i <= 10; i++) {
+            let next = a + b;
+            text += next + "; ";
+            a = b;
+            b = next;
+        }
+
+
+        document.getElementById("result").innerText = text;
+    }
+</script>
+
+</body>
+</html>
